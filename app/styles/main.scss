@@ -22,6 +22,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding-left: 20px;
   background-color: #326DE6;
   border-bottom: 1.1px solid #e7e7e7;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  position:fixed;
+  width:100%;
+  z-index:999;
 
   /* Make the masthead heading the same height as the navigation */
   #logo-desktop{
@@ -39,6 +43,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 .container-narrow > hr {
   margin: 30px 0;
+}
+.home{
+   .side-bar{
+     background: #ccc;
+     min-height: 100%;
+     height:700px;
+   }
 }
 
 /* Main marketing message and sign up button */

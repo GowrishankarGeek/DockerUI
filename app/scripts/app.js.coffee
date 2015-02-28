@@ -6,7 +6,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'snap'
   ])
   .config ($routeProvider) ->
     $routeProvider

@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title>Kubernetes</title>
+    <title>Docker</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="icon" href="images/favicon.ico" type="images/favicon.ico">
@@ -10,6 +10,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-snap/angular-snap.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -22,11 +23,8 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-      <div class="header">
-        <img src="images/nav_logo.svg" alt="Kubernetes by Google" id="logo-desktop">
-      </div>
-
-      <div ng-view=""></div>
+        <div ng-include="'/views/header.html'" ng-controller="HeaderCtrl"></div>
+        <div ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -66,6 +64,7 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/header.js"></script>
         <!-- endbuild -->
 </body>
 </html>

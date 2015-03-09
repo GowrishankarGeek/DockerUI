@@ -9,6 +9,7 @@ angular
     'ngTouch',
     'snap'
   ])
+  .constant 'appConfig', baseUrl: 'http://localhost:3000'
   .config ($routeProvider) ->
     $routeProvider
       .when '/',

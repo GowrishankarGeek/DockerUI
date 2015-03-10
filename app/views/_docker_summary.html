@@ -1,9 +1,31 @@
-<div class="heading col-md-12" style="margin-bottom:10px">
-	<h3 class="col-md-5" style="padding:0px">Your Repositories</h3>
-	<input type="button" class="fa fa-plus" value="Add Repository" >
+<div class="heading col-md-12" style="margin-bottom:10px" ng-controller="MainCtrl">
+	<h3 class="col-md-5" style="padding:0px">Docker Images</h3>
+	<input type="button" class="fa fa-plus" value="Add Image" >
 </div>
 <div class="docker-content col-md-12">
-	<ul>
+ <table ng-table="tableParams" class="table table-hover table-condensed">
+    <tbody ng-repeat="image in $data"  ng-class-odd="'odd'" ng-class-even="'even'">
+        <tr class="main-row" ng-click="toggleDetail($index)" >
+            <td data-title="'Repo'">
+               {{image.repo}} 
+            </td>
+             <td data-title="'Tag'">
+               {{image.tag}} 
+            </td>
+            <td data-title="'Image ID'">
+                {{image.image_id}}
+            </td>
+            <td data-title="'Created'">
+                {{image.created}}
+            </td>
+            <td data-title="'Image Size'" >
+                {{image.size}}
+            </td>
+        </tr>
+        
+        <tbody>
+    </table>
+	<!-- <ul>
 		<li> 
 			  <div class="col-md-6">
 			  <h4>trov-it123</h4>
@@ -31,5 +53,5 @@
 			  </div>
 			  <div class="col-md-3"></div>
 		</li>
-	</ul>
+	</ul> -->
 </div>

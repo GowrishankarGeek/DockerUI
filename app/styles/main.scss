@@ -13,16 +13,69 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 @media screen and (min-width: 768px){
 .container {
-  max-width: 1000px !important;
+  max-width: 1200px !important;
 }
 }
 /* Space out content a bit */
+.table{
+  .header{
+    background: #469dc8;
+    color: #fff;
+    text-align:left;
+    margin-left:15px;
+  }
 
+  .odd{
+    background-color: #FFF;
+  }
+  .even {
+    background-color: #eee;
+  }
+  .main-row{
+    font-size: 13px;
+    
+  }
+}
 
-
-/* Custom page header */
-.header {
+.ng-isolate-scope{
+  text-align: center;
+  .ng-table-counts{
+    display: none;
+  }
+  ul.pagination{
+    margin: 0;
+    li{
+      border: none;
+      a{
+        border : none;
+      }
+    }
+  }
+}
+.table > tbody + tbody{
+  border-top : none;
+}
+.pagination > .active > a{
   background-color: #fff;
+  border: none;
+  color : #337ab7;
+  font-weight : 600;
+  cursor: pointer;
+}
+.pagination > .active > a:hover, a:focus{
+  background-color: #fff;
+  border-color: none;
+  color : #337ab7;
+  font-weight : 600;
+  cursor: pointer;
+}
+
+.table-condensed > tbody > tr > td {
+      padding: 7px !important;
+    }
+/* Custom page header */
+.header-logo {
+  background : #fff;
   padding-top:10px;
   padding-bottom: 10px;
   border-bottom: 1.1px solid #e7e7e7;
@@ -30,6 +83,17 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   position:fixed;
   width:100%;
   z-index:999;
+  a{
+    color:#303030;
+  }
+  .product{
+    position: relative;
+    top: 4px;
+    font-size: 18px;
+    color: #fba337;
+    font-weight: 600;
+    text-shadow: 2px 2px #202020;
+  }
 
   /* Make the masthead heading the same height as the navigation */
   #logo-desktop{
@@ -70,32 +134,16 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
      }
    }
    .main-content{
+    
      .heading{
        input[type="button"]{
-         background: #24B8E8;
+         background: #469dc8;
          color: #fff;
          float: right;
          margin-top: 20px;
          border: none;
          padding: 7px 10px 7px 10px;
        }
-     }
-     .docker-content{
-      ul{
-        padding:0px;
-        li{
-          list-style: none;
-          padding: 10px;
-          height: 85px;
-          border: 1px solid #ccc;
-          border-radius: 10px;
-          margin-bottom:10px;
-          .features{
-            border-right:1px solid #ccc;
-            height:100%;
-          }
-        }
-      }
      }
    }
 }

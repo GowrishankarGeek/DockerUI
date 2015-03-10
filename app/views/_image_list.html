@@ -1,11 +1,11 @@
-<div class="heading col-md-12" style="margin-bottom:10px" ng-controller="MainCtrl">
+<div class="heading col-md-12" style="margin-bottom:10px">
 	<h3 class="col-md-5" style="padding:0px">Docker Images</h3>
 	<input type="button" class="fa fa-plus" value="Add Image" >
 </div>
 <div class="docker-content col-md-12">
  <table ng-table="tableParams" class="table table-hover table-condensed">
     <tbody ng-repeat="image in $data"  ng-class-odd="'odd'" ng-class-even="'even'">
-        <tr class="main-row" ng-click="toggleDetail($index)" >
+        <tr class="main-row" >
             <td data-title="'Repo'">
                {{image.repo}} 
             </td>

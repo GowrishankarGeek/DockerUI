@@ -1,0 +1,31 @@
+<div class="heading col-md-12" style="margin-bottom:10px">
+	<h3 class="col-md-5" style="padding:0px">Containers</h3>
+	<input type="button" class="fa fa-plus" value="Create Container" >
+</div>
+<div class="docker-content col-md-12" ng-controller="AboutCtrl">
+ <table ng-table="tableParams" class="table table-hover table-condensed">
+    <tbody ng-repeat="container in $data"  ng-class-odd="'odd'" ng-class-even="'even'">
+        <tr class="main-row" >
+            <td data-title="'Name'" >
+                {{container.name}}
+            </td>
+            <td data-title="'Container ID'">
+               {{container.id}} 
+            </td>
+             <td data-title="'Image'">
+               {{container.image}} 
+            </td>
+            <td data-title="'Command'">
+                {{container.command}}
+            </td>
+            <td data-title="'Created'" >
+                {{container.created}}
+            </td>
+            <td data-title="'Status'" >
+                {{container.status}}
+            </td>
+        </tr>
+        
+        <tbody>
+    </table>
+</div>

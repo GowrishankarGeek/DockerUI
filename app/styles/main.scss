@@ -62,12 +62,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   font-weight : 600;
   cursor: pointer;
 }
-.pagination > .active > a:hover, a:focus{
-  background-color: #fff;
-  border-color: none;
-  color : #337ab7;
-  font-weight : 600;
-  cursor: pointer;
+.pagination.active{
+  a:hover{
+    background-color: #fff;
+    border-color: none;
+    color : #337ab7;
+    font-weight : 600;
+    cursor: pointer;
+  }
 }
 
 .table-condensed > tbody > tr > td {

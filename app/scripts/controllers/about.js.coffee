@@ -26,6 +26,8 @@ angular.module('googleApp')
       $defer.resolve data.slice((params.page() - 1) * params.count(), params.page() * params.count())
       return
     )
-
+    # $scope.toggleDetail = ($index)  ->
+    #   debugger;
+    #   $scope.activePosition = $scope.activePosition == $index ? -1 : $index;
 
 ]

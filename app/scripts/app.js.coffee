@@ -10,15 +10,11 @@ angular
     'snap',
     'ngTable',
   ])
-  .constant 'appConfig', baseUrl: 'http://104.155.222.193:5000'
+  .constant 'appConfig', baseUrl: 'http://localhost:5000'
   .config ($httpProvider) ->
    [
-    $httpProvider.defaults.useXDomain = true;
-    $httpProvider.defaults.withCredentials = true;
-    delete $httpProvider.defaults.headers.common["X-Requested-With"];
-    $httpProvider.defaults.headers.common["Accept"] = "application/json";
-    $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
-  ]
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+   ]
 
   .config ($routeProvider) ->
     $routeProvider

@@ -32,18 +32,6 @@ angular.module('googleApp')
       return
     )
 
-    $scope.container-list = new ngTableParams({
-      page: 1
-      count: 10
-    },
-    total: datal.length
-    getData: ($defer, params) ->
-      $defer.resolve datal.slice((params.page() - 1) * params.count(), params.page() * params.count())
-      return
-    )
-
-    $scope.dockerSummary = (text) ->
-      Sample.showVersion({welcome:text}).then (data) ->
     $scope.containerList = () ->
       $scope.dockerContent.url = "/views/_container_list.html";
     $scope.imageList = () ->

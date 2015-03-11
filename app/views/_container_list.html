@@ -3,7 +3,7 @@
 	<input type="button" class="fa fa-plus" value="Create Container" >
 </div>
 <div class="docker-content col-md-12" ng-controller="AboutCtrl">
- <table ng-table="tableParams" class="table table-hover table-condensed">
+ <table ng-table="tableParams" class="table table-condensed">
     <tbody ng-repeat="container in $data"  ng-class-odd="'odd'" ng-class-even="'even'">
         <tr class="main-row" >
             <td data-title="'Name'" >
@@ -23,6 +23,17 @@
             </td>
             <td data-title="'Status'" >
                 {{container.status}}
+            </td>
+            <td data-title="'Actions'">
+                <label class="switch switch-success" ng-if="!isRestarting(container.id)" style="margin:0">
+
+                          <input type="checkbox" class="switch-input" ng-click="restartContainer(container.id, 'stop')" Checked>
+                          <span class="switch-label"  data-on="On" data-off="Off"></span>
+                          <span class="switch-handle"></span>
+                        </label>
+                <a href="" class="fa fa-play" ng-if="container.created !='2 hours ago'" style="margin-left:5px;color:green;font-size:12px;"></a>
+                <a href="" class="fa fa-pause" ng-if="container.created =='2 hours ago'" style="margin-left:5px;color:#404040;font-size:12px;"></a>
+                <a href="" class="fa fa-trash-o" style="margin-left:5px;color:#404040"></a>
             </td>
         </tr>
         

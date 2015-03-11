@@ -47,6 +47,6 @@ angular.module('googleApp')
     $scope.containerList = () ->
       $scope.dockerContent.url = "/views/_container_list.html";
     $scope.imageList = () ->
-      $scope.dockerContent.url = "/views/_image_list.html"
+      $scope.dockerContent.url = "/views/_image_list.html";
 
 ]

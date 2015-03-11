@@ -3,7 +3,7 @@
 	<input type="button" class="fa fa-plus" value="Add Image" >
 </div>
 <div class="docker-content col-md-12">
- <table ng-table="tableParams" class="table table-hover table-condensed">
+ <table ng-table="tableParams" class="table table-condensed">
     <tbody ng-repeat="image in $data"  ng-class-odd="'odd'" ng-class-even="'even'">
         <tr class="main-row" >
             <td data-title="'Repo'">
@@ -20,6 +20,11 @@
             </td>
             <td data-title="'Image Size'" >
                 {{image.size}}
+            </td>
+            <td data-title="'Actions'">
+            	<a href="" class="fa fa-tag" title="Tag Image" style="color:#404040"></a>
+            	<a href="" class="fa fa-share" style="margin-left:5px;color:#404040"></a>
+            	<a href="" class="fa fa-trash-o" style="margin-left:5px;color:#404040"></a>
             </td>
         </tr>
         

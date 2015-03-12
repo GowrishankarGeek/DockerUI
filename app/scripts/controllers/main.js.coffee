@@ -1,7 +1,7 @@
 'use strict'
 angular.module('googleApp')
-  .controller 'MainCtrl', ['$scope', '$routeParams', 'ngTableParams', '$location','Sample', '$rootScope', '$sce', '$compile',
-  ($scope, $routeParams, ngTableParams, $location, Sample, $rootScope, $sce, $compile)->
+  .controller 'MainCtrl', ['$scope', '$routeParams', 'ngTableParams', '$location','Sample', '$rootScope', 
+  '$sce', '$compile','$modal', ($scope, $routeParams, ngTableParams, $location, Sample, $rootScope, $sce, $compile,$modal)->
     $scope.dockerContent = {};
     $scope.dockerContent.url = "/views/_image_list.html";
     
@@ -35,6 +35,10 @@ angular.module('googleApp')
       $scope.viewMore = false
       $scope.activePosition = if $scope.activePosition == $index then -1 else $index
       return
-          
+    $scope.createContainer = () ->           
+      modalInstance = $modal.open({
+      templateUrl: 'views/_create_container.html',
+      backdrop : 'static',
+      });      
 
 ]

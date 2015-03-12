@@ -9,7 +9,8 @@ angular
     'ngTouch',
     'snap',
     'ngTable',
-    'truncate'
+    'truncate',
+    'ui.bootstrap'
   ])
   .constant 'appConfig', baseUrl: 'http://localhost:5000'
   .config ($httpProvider) ->

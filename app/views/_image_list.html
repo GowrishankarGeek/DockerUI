@@ -5,7 +5,7 @@
 <div class="docker-content col-md-12">
  <table ng-table="tableParams" class="table table-condensed">
     <tbody ng-repeat="image in dockerImages"  ng-class-odd="'odd'" ng-class-even="'even'">
-        <tr class="main-row" >
+        <tr class="main-row" ng-click="toggleDetail($index)">
             <td data-title="'Repo'">
                {{getRepo(image.RepoTags[0])}} 
             </td>
@@ -27,7 +27,34 @@
             	<a href="" class="fa fa-trash-o" style="margin-left:5px;color:#404040"></a>
             </td>
         </tr>
-        
+        <tr class="extra-row" ng-show="activePosition == $index">
+          <td colspan="7">
+          <div class="col-md-12" style="margin-bottom:20px">
+            <input type="button" value="View more" ng-if="!viewMore" ng-click="viewMoreClick()" style="float:right">
+            <input type="button" ng-if="viewMore" value="View less" ng-click="viewMoreClick()"  style="float:right"> 
+          </div>
+          <div class="col-md-6 col-md-offset-3" ng-if="viewMore">
+          <table class="table table-hover table-bordered" style="margin-bottom:0px">
+              <tbody><tr style="background:#eee">
+                  <th>Vitual Machine</th>
+                  <th>Cloud Account</th>
+                  <th>Size(GB)</th>
+                </tr>
+                <tr>
+                  <td>Ubuntu machine</td>
+                  <td>Google Account </td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>Ubuntu machine</td>
+                  <td>Google Account </td>
+                  <td>4</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          </td>
+        </tr>
         <tbody>
     </table>
 	<!-- <ul>

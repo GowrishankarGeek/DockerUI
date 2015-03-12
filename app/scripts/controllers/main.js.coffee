@@ -31,4 +31,10 @@ angular.module('googleApp')
     $scope.getTag = (image) ->
       return image.split(':')[1]
 
+    $scope.toggleDetail = ($index) ->
+      $scope.viewMore = false
+      $scope.activePosition = if $scope.activePosition == $index then -1 else $index
+      return
+          
+
 ]

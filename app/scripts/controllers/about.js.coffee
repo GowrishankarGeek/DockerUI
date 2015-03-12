@@ -9,7 +9,6 @@ angular.module('googleApp')
     },
     getData: ($defer, params) ->
       Sample.getContainers().then (data) ->
-        debugger;
         $scope.containers = data;
         params.total(data.length);
         $defer.resolve(data.result);

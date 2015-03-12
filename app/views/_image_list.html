@@ -4,22 +4,22 @@
 </div>
 <div class="docker-content col-md-12">
  <table ng-table="tableParams" class="table table-condensed">
-    <tbody ng-repeat="image in $data"  ng-class-odd="'odd'" ng-class-even="'even'">
+    <tbody ng-repeat="image in dockerImages"  ng-class-odd="'odd'" ng-class-even="'even'">
         <tr class="main-row" >
             <td data-title="'Repo'">
-               {{image.repo}} 
+               {{getRepo(image.RepoTags[0])}} 
             </td>
              <td data-title="'Tag'">
-               {{image.tag}} 
+               {{getTag(image.RepoTags[0])}} 
             </td>
             <td data-title="'Image ID'">
-                {{image.image_id}}
+                {{image.Id | limitTo: 11}}
             </td>
             <td data-title="'Created'">
-                {{image.created}}
+                {{image.Created}}
             </td>
             <td data-title="'Image Size'" >
-                {{image.size}}
+                {{image.VirtualSize}}
             </td>
             <td data-title="'Actions'">
             	<a href="" class="fa fa-tag" title="Tag Image" style="color:#404040"></a>

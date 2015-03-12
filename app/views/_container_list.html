@@ -9,25 +9,25 @@
 </div>
 <div class="docker-content col-md-12" ng-controller="AboutCtrl">
  <table ng-table="tableParams" class="table table-condensed ">
-    <tbody ng-repeat="container in $data | filter:searchText"  ng-class-odd="'odd'" ng-class-even="'even'">
+    <tbody ng-repeat="container in containers | filter:searchText"  ng-class-odd="'odd'" ng-class-even="'even'">
         <tr class="main-row">
             <td data-title="'Name'" >
-                {{container.name}}
+                {{container.Names[0]}}
             </td>
             <td data-title="'Container ID'">
-               {{container.id}} 
+               {{container.Id | limitTo: 11}} 
             </td>
              <td data-title="'Image'">
-               {{container.image}} 
+               {{container.Image}} 
             </td>
             <td data-title="'Command'">
-                {{container.command}}
+                {{container.Command | limitTo: 11}}
             </td>
             <td data-title="'Created'" >
-                {{container.created}}
+                {{container.Created}}
             </td>
             <td data-title="'Status'" >
-                {{container.status}}
+                {{container.Status}}
             </td>
             <td data-title="'Actions'">
                 <label class="switch switch-success" ng-if="!isRestarting(container.id)" style="margin:0">

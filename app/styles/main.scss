@@ -255,7 +255,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
    }
    .main-content{
     
-     .heading{
+     .heading, .docker-content{
        input[type="button"]{
          background: #469dc8;
          color: #fff;
@@ -263,6 +263,9 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
          margin-top: 20px;
          border: none;
          padding: 7px 10px 7px 10px;
+       }
+       .main-row{
+        cursor: pointer;
        }
      }
    }

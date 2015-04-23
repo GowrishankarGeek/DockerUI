@@ -150,6 +150,17 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 
 /* Space out content a bit */
+
+.table>tbody>tr>td{
+  border-top :none;
+  border-bottom :none;
+ }
+.table > tbody + tbody{
+  border-top : none;
+ }
+.table-bordered>thead>tr>th {
+  border-bottom-width: 0px;
+}
 .table{
   .header{
     background: #469dc8;

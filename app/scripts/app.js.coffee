@@ -12,7 +12,7 @@ angular
     'truncate',
     'ui.bootstrap'
   ])
-  .constant 'appConfig', baseUrl: 'http://192.168.1.40:5000'
+  .constant 'appConfig', baseUrl: 'http://104.197.15.159:5000'
   .config ($httpProvider) ->
    [
     delete $httpProvider.defaults.headers.common['X-Requested-With'];

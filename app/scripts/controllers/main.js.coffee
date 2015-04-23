@@ -4,21 +4,29 @@ angular.module('googleApp')
   '$sce', '$compile','$modal', '$window', 'AuthenticationService', ($scope, $routeParams, ngTableParams, $location, Sample, $rootScope, $sce, $compile, $modal, $window, AuthenticationService)->
     $scope.dockerContent = {};
     $scope.user = {};
-    $scope.dockerContent.url = "/views/_image_list.html";
-    
+    $scope.dockerContent.url = "/views/_summary.html";
+    $scope.stoppedContainer = [];
+
+    Sample.getContainers().then (data) ->
+      $scope.containers = data;
+      data.forEach (container) ->
+        if(container.Status.match("Exited")) 
+          $scope.stoppedContainer.push(container)
+
+    Sample.getImages().then (data) ->
+      $scope.dockerImages = data;
+
     $scope.tableImage = new ngTableParams({
       page: 1,
       count: 10
       },{
-      total: 100,
       getData: ($defer, params) ->
         Sample.getImages().then (data) ->
           $scope.dockerImages = data;
-
-          # params.total(data.length);
+          params.total(data.length);
           $defer.resolve(data);
           # $defer.resolve data.slice((params.page() - 1) * params.count(), params.page() * params.count())
-      }    # return
+      }   
     )
 
      

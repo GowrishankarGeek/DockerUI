@@ -15,4 +15,12 @@ angular.module('googleApp')
     ) 
     $scope.toggleDetail = ($index)  ->
       $scope.activePosition = $scope.activePosition == $index ? -1 : $index;
+
+    $scope.containerStatus = (status) ->
+      if(status.match("Exited"))
+        return false
+      else
+        return true
+
+    
 ]

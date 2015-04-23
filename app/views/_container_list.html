@@ -31,13 +31,12 @@
             </td>
             <td data-title="'Actions'">
                 <label class="switch switch-success" ng-if="!isRestarting(container.id)" style="margin:0">
-
-                          <input type="checkbox" class="switch-input" ng-click="restartContainer(container.id, 'stop')" Checked>
+                          <input type="checkbox" class="switch-input" ng-checked="containerStatus(container.Status)">
                           <span class="switch-label"  data-on="On" data-off="Off"></span>
                           <span class="switch-handle"></span>
                         </label>
-                <a href="" class="fa fa-play" ng-if="container.created !='2 hours ago'" style="margin-left:5px;color:green;font-size:12px;text-decoration:none"></a>
-                <a href="" class="fa fa-pause" ng-if="container.created =='2 hours ago'" style="margin-left:5px;color:#404040;font-size:12px;text-decoration:none"></a>
+                <!-- <a href="" class="fa fa-play" ng-if="container.created !='2 hours ago'" style="margin-left:5px;color:green;font-size:12px;text-decoration:none"></a>
+                <a href="" class="fa fa-pause" ng-if="container.created =='2 hours ago'" style="margin-left:5px;color:#404040;font-size:12px;text-decoration:none"></a> -->
                 <a href="" class="fa fa-trash-o" style="margin-left:5px;color:#404040;text-decoration:none"></a>
             </td>
         </tr>

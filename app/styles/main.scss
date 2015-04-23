@@ -2,7 +2,12 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+body {
+        padding:0px; margin:0px; border:0px;
+        background:#fff;
+        overflow: auto;
 
+    }
 
 .browsehappy {
   margin: 0.2em 0;
@@ -273,7 +278,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
         }
       li{
         list-style : none;
-        padding:15px;
+        padding:10px;
         color:#000;
       }
       }

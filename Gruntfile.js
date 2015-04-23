@@ -24,6 +24,12 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
 
+    open : {
+      dev: {
+        path: 'http://0.0.0.0:9000'
+      }
+    },
+
     // Project settings
     yeoman: appConfig,
 
@@ -66,7 +72,7 @@ module.exports = function (grunt) {
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
+        hostname: '0.0.0.0',
         livereload: 35729
       },
       livereload: {

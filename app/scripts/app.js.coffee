@@ -12,10 +12,11 @@ angular
     'truncate',
     'ui.bootstrap'
   ])
-  .constant 'appConfig', baseUrl: 'http://localhost:5000'
+  .constant 'appConfig', baseUrl: 'http://192.168.1.40:5000'
   .config ($httpProvider) ->
    [
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    $httpProvider.interceptors.push['TokenInterceptor'];
    ]
 
   .config ($routeProvider) ->

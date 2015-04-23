@@ -22,7 +22,7 @@ angular.module('googleApp').factory 'Sample', ['appConfig','$resource','$http','
     deferred.promise
   getContainers: () ->
     deferred = $q.defer()
-    xhr = $http.get(appConfig.baseUrl+'/containers/json?all=1')
+    xhr = $http.get(appConfig.baseUrl+'/containers/json')
     xhr.success (data) ->
       deferred.resolve data
       return

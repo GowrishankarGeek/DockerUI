@@ -1,8 +1,9 @@
 'use strict'
 angular.module('googleApp')
   .controller 'MainCtrl', ['$scope', '$routeParams', 'ngTableParams', '$location','Sample', '$rootScope', 
-  '$sce', '$compile','$modal', ($scope, $routeParams, ngTableParams, $location, Sample, $rootScope, $sce, $compile,$modal)->
+  '$sce', '$compile','$modal', '$window', 'AuthenticationService', ($scope, $routeParams, ngTableParams, $location, Sample, $rootScope, $sce, $compile, $modal, $window, AuthenticationService)->
     $scope.dockerContent = {};
+    $scope.user = {};
     $scope.dockerContent.url = "/views/_image_list.html";
     
     $scope.tableParams = new ngTableParams({
@@ -39,6 +40,12 @@ angular.module('googleApp')
       modalInstance = $modal.open({
       templateUrl: 'views/_create_container.html',
       backdrop : 'static',
-      });      
+      });
+
+    $scope.loginUser = () ->
+      Sample.loginUser($scope.user).then (data) ->
+        AuthenticationService.isLogged = true;
+        $window.sessionStorage.token = data.token;
+        debugger;     
 
 ]

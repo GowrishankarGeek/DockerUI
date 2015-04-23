@@ -13,7 +13,6 @@ angular.module('googleApp')
         params.total(data.length);
         $defer.resolve(data.result);
     ) 
-    # $scope.toggleDetail = ($index)  ->
-    #   debugger;
-    #   $scope.activePosition = $scope.activePosition == $index ? -1 : $index;
+    $scope.toggleDetail = ($index)  ->
+      $scope.activePosition = $scope.activePosition == $index ? -1 : $index;
 ]

@@ -6,26 +6,41 @@ angular.module('googleApp')
     $scope.user = {};
     $scope.dockerContent.url = "/views/_image_list.html";
     
-    $scope.tableParams = new ngTableParams({
-      page: 1
+    $scope.tableImage = new ngTableParams({
+      page: 1,
       count: 10
-    },
-    getData: ($defer, params) ->
-      Sample.getImages().then (data) ->
-        $scope.dockerImages = data;
-        params.total(data.length);
-        $defer.resolve(data);
-      # $defer.resolve data.slice((params.page() - 1) * params.count(), params.page() * params.count())
-      # return
+      },{
+      total: 100,
+      getData: ($defer, params) ->
+        Sample.getImages().then (data) ->
+          $scope.dockerImages = data;
+
+          # params.total(data.length);
+          $defer.resolve(data);
+          # $defer.resolve data.slice((params.page() - 1) * params.count(), params.page() * params.count())
+      }    # return
     )
+
      
     Sample.showInfo().then (data) ->
       $scope.dockerInfo = data;
 
     $scope.containerList = () ->
+      $scope.view = "container"
       $scope.dockerContent.url = "/views/_container_list.html";
     $scope.imageList = () ->
+      $scope.view = "image"
       $scope.dockerContent.url = "/views/_image_list.html";
+
+    $scope.dockerSummary = () ->
+      $scope.view = "summary"
+      $scope.dockerContent.url = "/views/_summary.html";
+
+    $scope.isActive = (view) ->
+      if(view == $scope.view)
+        return true
+      else
+        return false;
     $scope.getRepo = (image) ->
       return image.split(':')[0]
 
@@ -36,16 +51,9 @@ angular.module('googleApp')
       $scope.viewMore = false
       $scope.activePosition = if $scope.activePosition == $index then -1 else $index
       return
-    $scope.createContainer = () ->           
-      modalInstance = $modal.open({
-      templateUrl: 'views/_create_container.html',
-      backdrop : 'static',
-      });
-
-    $scope.loginUser = () ->
-      Sample.loginUser($scope.user).then (data) ->
-        AuthenticationService.isLogged = true;
-        $window.sessionStorage.token = data.token;
-        debugger;     
-
+    # $scope.createContainer = () ->           
+    #   modalInstance = $modal.open({
+    #   templateUrl: 'views/_create_container.html',
+    #   backdrop : 'static',
+    #   });
 ]

@@ -5,7 +5,7 @@
 
 <div class="docker-content col-md-12">
  <table ng-table="tableImage" class="table table-condensed">
-    <tbody ng-repeat="image in dockerImages"  ng-class-odd="'odd'" ng-class-even="'even'">
+    <tbody ng-repeat="image in $data"  ng-class-odd="'odd'" ng-class-even="'even'">
         <tr class="main-row" ng-click="toggleDetail($index)">
             <td data-title="'Repo'">
                {{getRepo(image.RepoTags[0])}} 

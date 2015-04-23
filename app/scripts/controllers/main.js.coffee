@@ -6,6 +6,7 @@ angular.module('googleApp')
     $scope.user = {};
     $scope.dockerContent.url = "/views/_summary.html";
     $scope.stoppedContainer = [];
+    data = [];
 
     Sample.getContainers().then (data) ->
       $scope.containers = data;
@@ -16,20 +17,17 @@ angular.module('googleApp')
     Sample.getImages().then (data) ->
       $scope.dockerImages = data;
 
-    $scope.tableImage = new ngTableParams({
-      page: 1,
-      count: 10
-      },{
-      getData: ($defer, params) ->
-        Sample.getImages().then (data) ->
-          $scope.dockerImages = data;
-          params.total(data.length);
-          $defer.resolve(data);
-          # $defer.resolve data.slice((params.page() - 1) * params.count(), params.page() * params.count())
-      }   
-    )
+      $scope.tableImage = new ngTableParams({
+        page: 1,
+        count: 10
+        },{
+        total: $scope.dockerImages.length,
+        getData: ($defer, params) ->
+          $defer.resolve $scope.dockerImages.slice((params.page() - 1) * params.count(), params.page() * params.count())
+        }   
+      )
+ 
 
-     
     Sample.showInfo().then (data) ->
       $scope.dockerInfo = data;
 

@@ -7,12 +7,15 @@ angular.module('googleApp')
     $scope.dockerContent.url = "/views/_summary.html";
     $scope.stoppedContainer = [];
     data = [];
+    $scope.runningContainers = [];
 
     Sample.getContainers().then (data) ->
       $scope.containers = data;
       data.forEach (container) ->
         if(container.Status.match("Exited")) 
           $scope.stoppedContainer.push(container)
+        else
+           $scope.runningContainers.push(container)
 
     Sample.getImages().then (data) ->
       $scope.dockerImages = data;

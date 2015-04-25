@@ -3,15 +3,18 @@ angular.module('googleApp')
   .controller 'AboutCtrl', ['$scope', '$routeParams', 'ngTableParams', '$location','Sample', '$rootScope', '$sce', '$compile', '$route'
   ($scope, $routeParams, ngTableParams, $location, Sample, $rootScope, $sce, $compile, $route)->
     
-    Sample.getContainers().then (data) ->
-      $scope.containers = data;
+    # Sample.getContainers().then (data) ->
+    #   $scope.containers = data;
 
     $scope.containersTable = new ngTableParams({
         page: 1,
         count: 10
         },{
-        total: $scope.containers.length,
         getData: ($defer, params) ->
+          debugger;
+          Sample.getContainers().then (data) ->
+            $scope.containers = data;
+          params.total($scope.containers.length);
           $defer.resolve $scope.containers.slice((params.page() - 1) * params.count(), params.page() * params.count())
         }   
     )
@@ -30,6 +33,10 @@ angular.module('googleApp')
       else
         status = "stop"
       Sample.restartContainer(id, status).then (data) ->
-        Sample.getContainers().then (data) ->
-          $scope.containers = data;     
+        $scope.containerErrorMessage = false;
+        $scope.containersTable.reload();
+
+    $rootScope.containerError = () ->
+      $scope.containerErrorMessage = true;
+      $scope.containersTable.reload();     
 ]

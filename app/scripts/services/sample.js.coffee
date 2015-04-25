@@ -50,7 +50,8 @@ angular.module('googleApp').factory 'Sample', ['appConfig','$resource','$http','
       return
     xhr.error (data) ->
       deferred.reject data
-      # $rootScope.containerError = true
+      debugger;
+      $rootScope.containerError()
       return
     deferred.promise
  ]

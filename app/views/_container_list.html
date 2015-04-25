@@ -9,7 +9,7 @@
 </div>
 <div class="docker-content col-md-12" ng-controller="AboutCtrl">
  <table ng-table="containersTable" class="table table-condensed ">
-    <tbody ng-repeat="container in $data | filter:searchText"  ng-class-odd="'odd'" ng-class-even="'even'">
+    <tbody ng-repeat="container in containers | filter:searchText"  ng-class-odd="'odd'" ng-class-even="'even'">
         <tr class="main-row">
             <td data-title="'Name'" >
                 {{container.Names[0]}}
@@ -31,7 +31,7 @@
             </td>
             <td data-title="'Actions'">
                 <label class="switch switch-success" ng-if="!isRestarting(container.id)" style="margin:0">
-                          <input type="checkbox" class="switch-input" ng-checked="containerStatus(container.Status)">
+                          <input type="checkbox" class="switch-input" ng-checked="containerStatus(container.Status)" ng-click="restartContainer(container.Id, container.Status)">
                           <span class="switch-label"  data-on="On" data-off="Off"></span>
                           <span class="switch-handle"></span>
                         </label>

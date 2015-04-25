@@ -40,4 +40,15 @@ angular.module('googleApp').factory 'Sample', ['appConfig','$resource','$http','
       deferred.reject data
       return
     deferred.promise
+
+  restartContainer : (id, status) ->
+    deferred = $q.defer()
+    xhr = $http.post(appConfig.baseUrl+'/containers/'+id+'/'+status)
+    xhr.success (data) ->
+      deferred.resolve data
+      return
+    xhr.error (data) ->
+      deferred.reject data
+      return
+    deferred.promise
  ]

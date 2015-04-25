@@ -1,4 +1,4 @@
-angular.module('googleApp').factory 'Sample', ['appConfig','$resource','$http','$q', (appConfig, $resource, $http, $q) ->
+angular.module('googleApp').factory 'Sample', ['appConfig','$resource','$http','$q','$rootScope', (appConfig, $resource, $http, $q, $rootScope) ->
 
   showVersion: (welcome) ->
     deferred = $q.defer()
@@ -46,9 +46,11 @@ angular.module('googleApp').factory 'Sample', ['appConfig','$resource','$http','
     xhr = $http.post(appConfig.baseUrl+'/containers/'+id+'/'+status)
     xhr.success (data) ->
       deferred.resolve data
+      # $rootScope.containerError = false
       return
     xhr.error (data) ->
       deferred.reject data
+      # $rootScope.containerError = true
       return
     deferred.promise
  ]

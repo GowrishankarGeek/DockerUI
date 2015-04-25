@@ -1,9 +1,7 @@
 'use strict'
 angular.module('googleApp')
-  .controller 'AboutCtrl', ['$scope', '$routeParams', 'ngTableParams', '$location','Sample', '$rootScope', '$sce', '$compile',
-  ($scope, $routeParams, ngTableParams, $location, Sample, $rootScope, $sce, $compile)->
-
-
+  .controller 'AboutCtrl', ['$scope', '$routeParams', 'ngTableParams', '$location','Sample', '$rootScope', '$sce', '$compile', '$route'
+  ($scope, $routeParams, ngTableParams, $location, Sample, $rootScope, $sce, $compile, $route)->
     
     Sample.getContainers().then (data) ->
       $scope.containers = data;
@@ -26,5 +24,12 @@ angular.module('googleApp')
       else
         return true
 
-    
+    $scope.restartContainer = (id, status) ->
+      if(status.match("Exited"))
+        status = "start"
+      else
+        status = "stop"
+      Sample.restartContainer(id, status).then (data) ->
+        Sample.getContainers().then (data) ->
+          $scope.containers = data;     
 ]

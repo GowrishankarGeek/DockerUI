@@ -11,7 +11,6 @@ angular.module('googleApp')
         count: 10
         },{
         getData: ($defer, params) ->
-          debugger;
           Sample.getContainers().then (data) ->
             $scope.containers = data;
           params.total($scope.containers.length);
@@ -36,7 +35,7 @@ angular.module('googleApp')
         $scope.containerErrorMessage = false;
         $scope.containersTable.reload();
 
-    $rootScope.containerError = () ->
-      $scope.containerErrorMessage = true;
-      $scope.containersTable.reload();     
+    # $rootScope.containerError = () ->
+    #   $scope.containerErrorMessage = true;
+    #   $scope.containersTable.reload();     
 ]

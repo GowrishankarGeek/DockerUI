@@ -66,5 +66,5 @@ $ sudo docker run --name idock  -it -p "9000:9000" bluemeric/dockyard
 ![Alt text](http://bluemeric.com/img/Dockyard-ContainersList.png "DockYard Containers")
 
 #License
-DockYard is licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE.md) for the full license text.
+DockYard is licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) for the full license text.
 
